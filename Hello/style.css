@@ -1,14 +1,203 @@
+@import url(//fonts.googleapis.com/css?family=Lato|Signika|Signika+Negative);
 
-/* Головной блок head и его подэлементы*/
-.head{
+body{
+    background-color: #eaedf1;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+}
+
+h1,
+h2,
+h3{
+    font-family: 'Signika', sans-serif;
+    font-weight: lighter;
+    color: #33495f;
+}
+
+/* Головной блок header и его подблоки */
+.header{
+    text-align: center;
+    vertical-align: top;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 270px;
+    padding-right: 270px;
+    margin-top: 80px;
+}
+
+.header-element{
+    background-color: white;
+    height: 295px;
+    border: #f6f8f9 solid 1px;
+    border-radius: 3px;
+}
+
+/* Профиль */
+.header-profile{
+    padding: 0px;
+    width: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    font-size: 18px;
+}
+.header-profile h2{
+    font-size: 32px;
+}
+.header-profile .avatar-container{
+    padding-left: 15px;
+    margin-top: 35px;
+    height: 144px;
+    min-width: 144px;
+    flex: 1 1 auto; 
+    text-align: center;
+}
+.avatar-container img{
+    height: 144px;
+    width: 144px;
+    border-radius: 50%;
+}
+.header-profile .name{
+    padding: 0px;
+    margin-top: 35px;
+    height: 146px;
+    min-width: 146px;
+    flex: 1 1 auto; 
+    align-self: flex-start;
+    text-align: left;
+    padding-left: 30px;
+}
+.header-profile .name h2{
+    margin-top: 40px;
+    margin-bottom: -15px;
+}
+.header-profile .name p{
+    color: #586879;
+}
+
+.header-profile .profile-card{
+    background-image: url("test-png.png");
+    height: 78px;
+    width: 25%;
+    flex: 1 1 auto; 
+    border: 1px solid;
+    border-radius: 1px;
+    margin: -1px;
+    color: white;
+    line-height: 103px;
+    text-transform: uppercase;
+    font-size: 14.5px;
+}
+
+.header-profile .profile-card.icon-eye{
+    background-position: 10% 10%;
+    background-color: #16c4ec;
+    border-color: #95dbef;
+}
+.header-profile .profile-card.icon-flag{
+    background-position: 10% 20%;
+    background-color: #fa5351;
+    border-color: #f1abad;
+}
+.header-profile .profile-card.icon-car{
+    background-position: 10% 30%;
+    background-color: #10cdc1;
+    border-color: #93dfdd;
+}
+.header-profile .profile-card.icon-cigarette{
+    background-position: 10% 40%;
+    background-color: #33495f;
+    border-color: #9ba6b3;
+}
+
+/* Контакты */
+
+.header-contacts{
+    width: 825px;
+    padding: 0;   
+}
+
+.header-contacts .contacts-element{
+    max-height: 100%;
+    margin: 0;
+}
+
+.header-contacts .contacts-left{
+    width: 405px;
+    padding-left: 32px;
+    padding-top: 13px;
+    text-align: justify;
+}
+
+.header-contacts .contacts-left h2{
+    font-size: 38px;
+    margin-bottom: -7px;
+}
+
+.header-contacts .contacts-left p{
+    color: #33495f;
+    line-height: 29px;
+    word-spacing: 4px;
+}
+
+.header-contacts .contacts-left a{
+    color: #16C4EC;
+    text-decoration: none;
+}
+
+.header-contacts .contacts-right{
+    float: right;
+    width: 350px;
+    padding-top: 82px;
+    font-size: 22px;
+    color: #33495f;
+}
+.header-contacts .contacts-right p{
+    color: #33495f;
+    margin-bottom: 19px;
+}
+.header-contacts .contacts-right a{
+    text-decoration: none;
+    letter-spacing:  2px;
+    color: red;
+    margin-bottom: 19px;
+}
+.header-contacts .contacts-right hr{
+    margin-top: 35px;
+}
+
+/* Основной блок и его колонки */
+.content{
 
 }
 
-.head-profile{
+.content-element{
 
 }
 
-.head-contacts{
+.content-left{
 
 }
 
+.content-center{
+
+}
+
+.content-right{
+
+}
+
+/* Подвал страницы */
+
+.footer{
+
+}
+
+/* Служебное */
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+  }
