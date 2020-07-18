@@ -4,6 +4,7 @@ body{
     background-color: #eaedf1;
     font-family: 'Lato', sans-serif;
     font-size: 18px;
+    color: #33495F;
 }
 
 h1,
@@ -132,7 +133,7 @@ h3{
 }
 
 .header-contacts .contacts-left h2{
-    font-size: 38px;
+    font-size: 38.42px;
     margin-bottom: -7px;
 }
 
@@ -170,28 +171,99 @@ h3{
 
 /* Основной блок и его колонки */
 .content{
-
+    text-align: center;
+    vertical-align: top;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 35px 270px;
+    height: 1170px;
 }
 
 .content-element{
+    border: red solid 1px;
+    width: 50px;
+}
+
+.content .content-left{
+    width: 630px;
+    padding: 0px;
+}
+.content .content-left .job-card{
+    height: 300px;
+    background-color: white;
+    border: #F5F7F8 solid 1px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+.content .content-left .job-detail{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    padding: 26px 20px;
+
+}
+.content .content-left .job-detail .card-element{
+    margin: 0px;
+    /*border: 1px solid black;*/
+}
+.content .content-left .job-detail .description{
+    margin-left: 10px;
+    padding-top: 7px;
+    text-align: left;
+    flex: 1 1 auto; 
+    vertical-align: bottom;
+    color: #9EA7B4;
+}
+.content .content-left .job-detail h3{
+    color: #04BCA6;
+}
+
+.content .content-left .job-detail ul{
+    font-size: 17px;
+    padding-top: 30px;
+    padding-left: 35px;
+    text-align: left;
+    list-style: none;
+}
+.content .content-left .job-detail ul li{
+    margin-bottom: 15px;
+}
+
+.content .content-left .job-detail .button{
+    background-color: #16C4EC;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    /*215*40(39?)*/
+    width: 215px;
+    height: 39px;
+    border-color: #99E3F6;
+    
+    border-radius: 3px;
+}
+
+.content .content-left .job-short{
+    height: 140px;
+}
+
+
+.content .content-center{
 
 }
 
-.content-left{
-
-}
-
-.content-center{
-
-}
-
-.content-right{
-
+.content .content-right{
+    width: 620px;
 }
 
 /* Подвал страницы */
 
 .footer{
+    text-align: center;
+    vertical-align: top;
+    padding: 20px;
+    height: 80px;
 
 }
 
