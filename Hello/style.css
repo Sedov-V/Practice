@@ -79,7 +79,8 @@ h3{
 }
 
 .header-profile .profile-card{
-    background-image: url("test-png.png");
+    background-image: url("profile-icons.png");
+    background-repeat: no-repeat;
     height: 78px;
     width: 25%;
     flex: 1 1 auto; 
@@ -93,22 +94,22 @@ h3{
 }
 
 .header-profile .profile-card.icon-eye{
-    background-position: 10% 10%;
+    background-position: -2px 27%;
     background-color: #16c4ec;
     border-color: #95dbef;
 }
 .header-profile .profile-card.icon-flag{
-    background-position: 10% 20%;
+    background-position: -110px 27%;
     background-color: #fa5351;
     border-color: #f1abad;
 }
 .header-profile .profile-card.icon-car{
-    background-position: 10% 30%;
+    background-position: -218px 27%;
     background-color: #10cdc1;
     border-color: #93dfdd;
 }
 .header-profile .profile-card.icon-cigarette{
-    background-position: 10% 40%;
+    background-position: -326px 27%;
     background-color: #33495f;
     border-color: #9ba6b3;
 }
@@ -126,6 +127,7 @@ h3{
 }
 
 .header-contacts .contacts-left{
+    position: relative;
     width: 405px;
     padding-left: 32px;
     padding-top: 13px;
@@ -146,6 +148,53 @@ h3{
 .header-contacts .contacts-left a{
     color: #16C4EC;
     text-decoration: none;
+}
+
+.header-contacts .contacts-left .social-card{
+    position: absolute;
+    background-image: url("social-icons.png");
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    flex: 1 1 auto; 
+    border: 1px solid;
+    border-radius: 1px;
+    margin: -1px;
+    color: white;
+    line-height: 103px;
+    text-transform: uppercase;
+    font-size: 14.5px;
+}
+
+.header-contacts .contacts-left .social-card.icon-tw{
+    top: 235px;
+    left: 15px;
+    background-position: -10px 27%;
+}
+.header-contacts .contacts-left .social-card.icon-g{
+    top: 235px;
+    left: 90px;
+    background-position: -85px 27%;
+}
+.header-contacts .contacts-left .social-card.icon-be{
+    top: 235px;
+    left: 165px;
+    background-position: -160px 27%;
+}
+.header-contacts .contacts-left .social-card.icon-ins{
+    top: 235px;
+    left: 240px;
+    background-position: -235px 27%;
+}
+.header-contacts .contacts-left .social-card.icon-o{
+    top: 235px;
+    left: 315px;
+    background-position: -310px 27%;
+}
+.header-contacts .contacts-left .social-card.icon-in{
+    top: 235px;
+    left: 390px;
+    background-position: -385px 27%;
 }
 
 .header-contacts .contacts-right{
@@ -181,32 +230,38 @@ h3{
 }
 
 .content-element{
-    border: red solid 1px;
     width: 50px;
 }
+
+/* Левая колонка */
 
 .content .content-left{
     width: 630px;
     padding: 0px;
 }
 .content .content-left .job-card{
-    height: 300px;
+    height: 288px;
     background-color: white;
     border: #F5F7F8 solid 1px;
     border-radius: 3px;
     margin-bottom: 30px;
 }
+
+/* Подробная карточка */
+
 .content .content-left .job-detail{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: flex-start;
     padding: 26px 20px;
-
 }
+.content .content-left .job-detail:nth-child(2){
+    height: 268px;
+}
+
 .content .content-left .job-detail .card-element{
     margin: 0px;
-    /*border: 1px solid black;*/
 }
 .content .content-left .job-detail .description{
     margin-left: 10px;
@@ -221,40 +276,470 @@ h3{
 }
 
 .content .content-left .job-detail ul{
-    font-size: 17px;
-    padding-top: 30px;
+    font-size: 16px;
+    padding-top: 36px;
     padding-left: 35px;
     text-align: left;
     list-style: none;
 }
+
+.content .content-left .job-detail:nth-child(2) ul{
+    padding-top: 18px;
+}
+
 .content .content-left .job-detail ul li{
+    margin-left: -30px;
     margin-bottom: 15px;
+}
+img{
+    margin-right: 10px;
+}
+.content .content-left .job-detail .city{
+    margin-bottom: 11px;
+    align-self: flex-end;
+    font-size: 16px;
+    color: #9EA7B4;
+}
+
+.content .content-left .job-detail .date{
+    margin-bottom: 11px;
+    align-self: flex-end;
+    font-size: 16px;
+    color: #9EA7B4;
 }
 
 .content .content-left .job-detail .button{
+    margin-top: 24px;
     background-color: #16C4EC;
     color: white;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
-    /*215*40(39?)*/
-    width: 215px;
-    height: 39px;
+    width: 217px;
+    height: 37px;
     border-color: #99E3F6;
-    
+    align-self: flex-end;
     border-radius: 3px;
+    line-height: 37px;
+}
+
+/* Краткая карточка */
+
+.content .content-left .job-short:first-of-type{
+    margin-top: 120px;
 }
 
 .content .content-left .job-short{
-    height: 140px;
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    padding: 26px 20px;
+    padding-top: 30px;
 }
 
+.content .content-left .job-short .card-element{
+    margin: 0px;
+}
+.content .content-left .job-short .description{
+    margin-left: 10px;
+    padding-top: 7px;
+    text-align: left;
+    flex: 1 1 auto; 
+    vertical-align: bottom;
+    color: #9EA7B4;
+}
+.content .content-left .job-short h3{
+    color: #04BCA6;
+}
+
+.content .content-left .job-short ul{
+    font-size: 16px;
+    padding-top: 36px;
+    padding-left: 35px;
+    text-align: left;
+    list-style: none;
+}
+
+.content .content-left .job-short ul li{
+    margin-bottom: 15px;
+}
+
+.content .content-left .job-short .city{
+    margin-bottom: 11px;
+    align-self: flex-end;
+    font-size: 16px;
+    color: #9EA7B4;
+}
+
+.content .content-left .job-short .date{
+    margin-bottom: 11px;
+    align-self: flex-end;
+    font-size: 16px;
+    color: #9EA7B4;
+}
+
+.content .content-left .job-short .button{
+    margin-top: 28px;
+    background-color: #B0BBCA;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    width: 217px;
+    height: 37px;
+    border-color: #99E3F6;
+    align-self: flex-end;
+    border-radius: 3px;
+    line-height: 37px;
+}
+
+/* Центральная колонка */
 
 .content .content-center{
-
+    position: relative;
+    font-size: 22px;
 }
 
+.content .content-center .line{
+    margin-top: 3px;
+    margin-left: 20px;
+    width: 0px;
+    height: 1132px;
+    border: 3px solid #DBE1E8;
+}
+.content .content-center .date{
+    display: block;
+    background-color: #DBE1E8;
+    margin-left: -13px;
+    width: 66px;
+    height: 29px;
+    border: 3px solid #DBE1E8;
+    border-radius: 5px;
+    color: white;
+}
+.content .content-center .point{
+    top: 22px;
+    position: absolute;
+    left: 13.5px;
+    background-color: #DBE1E8;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 10;
+}
+.content .content-center .point:nth-of-type(2){
+    top: 163px;
+}
+.content .content-center .point:nth-of-type(3){
+    top: 263px;
+}
+.content .content-center .point:nth-of-type(4){
+    top: 467px;
+}
+.content .content-center .point:nth-of-type(5){
+    top: 526px;
+}
+.content .content-center .point:nth-of-type(6){
+    top: 666px;
+}
+.content .content-center .point:nth-of-type(7){
+    top: 804px;
+}
+.content .content-center .point:nth-of-type(8){
+    top: 886px;
+}
+.content .content-center .point:nth-of-type(9){
+    top: 1003px;
+}
+.content .content-center .point:nth-of-type(10){
+    top: 1047px;
+}
+
+.content .content-center .point.point-white{
+    background-color: white;
+}
+.content .content-center .point.point-gray{
+    background-color: #DBE1E8;
+}
+
+/* Правая колонка */
+
 .content .content-right{
-    width: 620px;
+    width: 626px;
+    padding: 0px;
+}
+
+.content .content-right .other-card{
+    height: 105px;
+    background-color: #DBE1E8;
+    border: #DFE5EB solid 1px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+
+/* Верхние две карточки */
+
+.content .content-right .other-top{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    padding: 34px 22px;
+    padding-top: 30px;
+}
+
+.content .content-right .other-top .card-element{
+    margin: 0px;
+}
+
+.content .content-right .other-top h2{
+    font-size: 22px;
+}
+
+.content .content-right .other-top .description{
+    font-size: 16px;
+    margin-left: 10px;
+    padding-top: 5px;
+    text-align: left;
+    flex: 1 1 auto; 
+    vertical-align: bottom;
+    color: #9EA7B4;
+}
+.content .content-right .other-top h3{
+    font-size: 18px;
+    color: #00B9D8;
+}
+
+.content .content-right .other-top .city{
+    margin-bottom: 11px;
+    align-self: flex-end;
+    font-size: 12px;
+    color: #33495F;
+}
+
+.content .content-right .other-top .date{
+    margin-bottom: 11px;
+    align-self: flex-end;
+    font-size: 12px;
+    color: #33495F;
+}
+
+.content .content-right .other-top .button{
+    margin-top: 32px;
+    background-color: #10CDC1;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    width: 217px;
+    height: 37px;
+    border-color: #99E3F6;
+    align-self: flex-end;
+    border-radius: 3px;
+    line-height: 37px;
+}
+
+/* Точечная линия */
+
+.content .content-right .dotted{
+    background-image: url("dotted.png");
+    background-repeat: repeat-x;
+    margin-top: 32px;
+    height: 5px;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+/* Цетральные две карточки */
+
+.content .content-right .other-bottom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    padding: 34px 22px;
+    padding-top: 30px;
+    height: 63px;
+    margin-bottom: 33px;
+}
+
+.content .content-right .other-bottom .card-element{
+    margin: 0px;
+}
+
+.content .content-right .other-bottom h2{
+    font-size: 22px;
+}
+
+.content .content-right .other-bottom .description{
+    font-size: 16px;
+    margin-left: 10px;
+    padding-top: 5px;
+    text-align: left;
+    flex: 1 1 auto; 
+    vertical-align: bottom;
+    color: #9EA7B4;
+}
+.content .content-right .other-bottom h3{
+    font-size: 18px;
+    color: #04BCA6;
+}
+
+.content .content-right .other-bottom .city{
+    align-self: flex-end;
+    font-size: 12px;
+    color: #33495F;
+}
+
+.content .content-right .other-bottom .date{
+    align-self: flex-end;
+    font-size: 12px;
+    color: #33495F;
+}
+
+.content .content-right .other-bottom .stars{
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    width: 110px;
+    height: 7px;
+    align-self: flex-end;
+    border-radius: 3px;
+    line-height: 37px;
+}
+.content .content-right .other-bottom .stars img{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Блок хобби */
+
+.content .content-right .hobby{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    height: 370px;
+    background-color: white;
+    padding: 16px 8px;
+    padding-right: 3px;
+}
+
+.content .content-right .hobby .hobby-card{
+    height: 78px;
+    min-width: 16%;
+    flex: 1 1 auto; 
+    font-size: 14.5px;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    line-height: 190px;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 68px;
+}
+
+.content .content-right .hobby .hobby-card .icon-web{
+    background-image: url("hobby-icons.png");
+    background-repeat: no-repeat;
+    height: 78px;
+    width: 78px;
+    border-radius: 50%;
+    background-position: 0px 26%;
+    background-color: #10CDC1;
+}
+.content .content-right .hobby .hobby-card .icon-film{
+    background-image: url("hobby-icons.png");
+    background-repeat: no-repeat;
+    height: 78px;
+    width: 78px;
+    border-radius: 50%;
+    background-position: -103px 26%;
+    background-color: #16C4EC;
+}
+.content .content-right .hobby .hobby-card .icon-music{
+    background-image: url("hobby-icons.png");
+    background-repeat: no-repeat;
+    height: 78px;
+    width: 78px;
+    border-radius: 50%;
+    background-position: -206px 26%;
+    background-color: #10CDC1;
+}
+.content .content-right .hobby .hobby-card .icon-fashion{
+    background-image: url("hobby-icons.png");
+    background-repeat: no-repeat;
+    height: 78px;
+    width: 78px;
+    border-radius: 50%;
+    background-position: -308px 26%;
+    background-color: #FA5351;
+}
+.content .content-right .hobby .hobby-card .icon-food{
+    background-image: url("hobby-icons.png");
+    background-repeat: no-repeat;
+    height: 78px;
+    width: 78px;
+    border-radius: 50%;
+    background-position: -410px 26%;
+    background-color: #10CDC1;
+}
+.content .content-right .hobby .hobby-card .icon-travel{
+    background-image: url("hobby-icons.png");
+    background-repeat: no-repeat;
+    height: 78px;
+    width: 78px;
+    border-radius: 50%;
+    background-position: -513px 26%;
+    background-color: #16C4EC;
+}
+
+.content .content-right .hobby .progress-block{
+    height: 54px;
+    min-width: 46%;
+    font-size: 14.5px;
+    padding: 0px;
+    padding-left: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    font-size: 16px;
+}
+
+.name::after {
+    content: ''; /* Выводим треугольник */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0; right: 0; /* Положение треугольника */
+    /* Создание треугольника */
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 20px 0 0 20px;
+    border-color: black transparent transparent #e2edc1;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+   }
+
+.content .content-right .hobby .progress{
+    margin-top: 5px;
+    width: 97%;
+    height: 15px;
+    border-radius: 135px;
+}
+.content .content-right .hobby .progress::-webkit-progress-bar {
+    background-color: #DBE1E8;
+    border-radius: 135px;
+}
+.content .content-right .hobby .progress::-webkit-progress-value {
+    background-color: #10CDC1;
+    border-radius: 135px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.content .content-right .hobby .progress.right::-webkit-progress-value {
+    background-color: #16C4EC;
 }
 
 /* Подвал страницы */
@@ -264,7 +749,11 @@ h3{
     vertical-align: top;
     padding: 20px;
     height: 80px;
+}
 
+.footer img{
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* Служебное */
