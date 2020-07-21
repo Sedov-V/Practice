@@ -26,11 +26,23 @@ canvas {
     font-family: sans-serif;
     color: #757575;
 }
+#stats {
+    float: right;
+    font-family: sans-serif;
+    color: #757575;
+    font-size: 2em;
+}
 
+#stats span{
+    padding-left: 20px;
+}
 #score {
     float: right;
     color: white;
-    font-size: 2em;
+}
+#manna {
+    float: right;
+    color: white;
 }
 
 .key {
