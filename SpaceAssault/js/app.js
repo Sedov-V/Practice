@@ -279,28 +279,39 @@ function checkCollisions(dt) {
         var pos = enemies[i].pos;
         var size = enemies[i].sprite.size;
 
+
+        var direction = 0;
+        var maxMegalithPosition = -1;
         for (var j = 0; j < megaliths.length; j++) {
             var pos2 = megaliths[j].pos;
             var size2 = megaliths[j].sprite.size;
 
-            var prePos = pos2.slice();
-            prePos[0] += 80;
-            prePos[1] -= size[1];
+            var prePos = pos.slice();
+            prePos[0] -= 45;
+            prePos[1] -= 30;
             var preSize = size.slice();
-            preSize[1] += preSize[1] * 2;
+            preSize[0] += 25;
+            preSize[1] += + 60;
 
-            if (boxCollides(pos, size, prePos, preSize)) {
-                if (enemies[i].pos[1] <= canvas.height / 2) {
-                    enemies[i].pos[1] -= enemySpeed * dt;
-                }
-                else {
-                    enemies[i].pos[1] += enemySpeed * dt;
+            if (boxCollides(pos2, size2, prePos, preSize)) {
+                if (pos2[0] + size2[0] < pos[0] + size[0] / 2) {
+                    if (pos2[0] + size2[0] >= maxMegalithPosition) {
+                        maxMegalithPosition = pos2[0] + size2[0];
+
+                        if (enemies[i].pos[1] <= pos2[1]) {
+                            direction = -enemySpeed * dt;
+                        }
+                        else {
+                            direction = enemySpeed * dt;
+                        }
+                    }
                 }
             }
             if (boxCollides(pos, size, pos2, size2)) {
-                enemies[i].pos[0] += 2 * enemySpeed * dt;
+                //enemies[i].pos[0] += 2 * enemySpeed * dt;
             }
         }
+        enemies[i].pos[1] += direction;       
 
         for (var j = 0; j < bullets.length; j++) {
             var pos2 = bullets[j].pos;
@@ -369,8 +380,8 @@ function render() {
     renderEntities(mannasExplosion);
     renderEntities(bullets);
     renderEntities(enemies);
-    renderEntities(explosions);
     renderEntities(megaliths);
+    renderEntities(explosions);
 };
 
 function renderEntities(list) {
@@ -394,9 +405,33 @@ function generateManna() {
             Math.random() * (canvas.height - 41)],
             sprite: new Sprite('img/sprites.png', [2, 162], [59, 41], 2, [0, 1])
         });
+        if (boxCollides(mannas[i].pos, mannas[i].sprite.size, [50, canvas.height / 2], player.sprite.size)) {
+            mannas[i].pos[1] = canvas.height / 2 - mannas[i].sprite.size[1] - 10;
+        }
+        var hasCollides = true;
+        while (hasCollides) {
+            var pos = mannas[i].pos;
+            var size = mannas[i].sprite.size;
+
+            hasCollides = false;
+
+            for (var j = 0; j < megaliths.length; j++) {
+                var pos2 = megaliths[j].pos;
+                var size2 = megaliths[j].sprite.size;
+
+                if (boxCollides(pos, size, pos2, size2)) {
+                    pos[1] = pos2[1] - size[1];
+                    hasCollides = true;
+                }
+                if (pos[1] <= 0) {
+                    pos = [Math.random() * (canvas.width - 55), Math.random() * (canvas.height - 41)]
+                }
+            }
+        }
     }
 }
 function generateMegaliths() {
+
     var megalithsCount = 3 + Math.floor(Math.random() * 2);
     for (var i = 0; i < megalithsCount; i++) {
         if (Math.random() < 0.5) {
@@ -412,6 +447,9 @@ function generateMegaliths() {
                 Math.random() * (canvas.height - 42)],
                 sprite: new Sprite('img/sprites.png', [5, 274], [48, 42])
             });
+        }
+        if (boxCollides(megaliths[i].pos, megaliths[i].sprite.size, [50, canvas.height / 2], player.sprite.size)) {
+            megaliths[i].pos[1] = canvas.height / 2 - megaliths[i].sprite.size[1] - 10;
         }
     }
 }

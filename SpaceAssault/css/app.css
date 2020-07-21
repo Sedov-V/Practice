@@ -30,11 +30,11 @@ canvas {
     float: right;
     font-family: sans-serif;
     color: #757575;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 #stats span{
-    padding-left: 20px;
+    padding-left: 10px;
 }
 #score {
     float: right;
