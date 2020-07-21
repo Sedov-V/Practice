@@ -7,15 +7,15 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "name": "Main Chrome",
+            "url": "http://127.0.0.1:5500/Hello",
+            "webRoot": "${workspaceRoot}"
         },
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Main Chrome",
-            "url": "http://127.0.0.1:5500/Hello",
+            "name": "SpaceAssault",
+            "url": "http://127.0.0.1:5500/SpaceAssault",
             "webRoot": "${workspaceRoot}"
         }
     ]
