@@ -308,7 +308,21 @@ function checkCollisions(dt) {
                 }
             }
             if (boxCollides(pos, size, pos2, size2)) {
-                //enemies[i].pos[0] += 2 * enemySpeed * dt;
+                // Remove the enemy
+                enemies.splice(i, 1);
+                i--;
+
+                // Add an explosion
+                explosions.push({
+                    pos: pos,
+                    sprite: new Sprite('img/sprites.png',
+                        [0, 117],
+                        [39, 39],
+                        16,
+                        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                        null,
+                        true)
+                });
             }
         }
         enemies[i].pos[1] += direction;       
@@ -405,9 +419,7 @@ function generateManna() {
             Math.random() * (canvas.height - 41)],
             sprite: new Sprite('img/sprites.png', [2, 162], [59, 41], 2, [0, 1])
         });
-        if (boxCollides(mannas[i].pos, mannas[i].sprite.size, [50, canvas.height / 2], player.sprite.size)) {
-            mannas[i].pos[1] = canvas.height / 2 - mannas[i].sprite.size[1] - 10;
-        }
+
         var hasCollides = true;
         while (hasCollides) {
             var pos = mannas[i].pos;
@@ -426,6 +438,10 @@ function generateManna() {
                 if (pos[1] <= 0) {
                     pos = [Math.random() * (canvas.width - 55), Math.random() * (canvas.height - 41)]
                 }
+            }
+            if (boxCollides(mannas[i].pos, mannas[i].sprite.size, [50, canvas.height / 2], player.sprite.size)) {
+                pos[1] = canvas.height / 2 - size[1] - 10;
+                hasCollides = true;
             }
         }
     }
