@@ -287,10 +287,10 @@ function checkCollisions(dt) {
             var size2 = megaliths[j].sprite.size;
 
             var prePos = pos.slice();
-            prePos[0] -= 45;
+            prePos[0] -= 25;
             prePos[1] -= 30;
             var preSize = size.slice();
-            preSize[0] += 25;
+            preSize[0] += 15;
             preSize[1] += + 60;
 
             if (boxCollides(pos2, size2, prePos, preSize)) {
@@ -298,6 +298,8 @@ function checkCollisions(dt) {
                     if (pos2[0] + size2[0] >= maxMegalithPosition) {
                         maxMegalithPosition = pos2[0] + size2[0];
 
+                        pos[0] += 0.7 * enemySpeed * dt;
+                        
                         if (enemies[i].pos[1] <= pos2[1]) {
                             direction = -enemySpeed * dt;
                         }
