@@ -89,6 +89,7 @@ function update(dt) {
     // equation: 1-.993^gameTime
     if (Math.random() < 1 - Math.pow(.993, gameTime)) {
         enemies.push({
+            canMove: true,
             pos: [canvas.width,
             Math.random() * (canvas.height - 39)],
             sprite: new Sprite('img/sprites.png', [0, 78], [80, 39],
@@ -185,7 +186,9 @@ function updateEntities(dt) {
 
     // Update all the enemies
     for (var i = 0; i < enemies.length; i++) {
-        enemies[i].pos[0] -= enemySpeed * dt;
+        if (enemies[i].canMove) {
+            enemies[i].pos[0] -= enemySpeed * dt;
+        }
         enemies[i].sprite.update(dt);
 
         // Remove if offscreen
@@ -279,55 +282,62 @@ function checkCollisions(dt) {
         var pos = enemies[i].pos;
         var size = enemies[i].sprite.size;
 
+        if (enemies[i].canMove) {
 
-        var direction = 0;
-        var maxMegalithPosition = -1;
-        for (var j = 0; j < megaliths.length; j++) {
-            var pos2 = megaliths[j].pos;
-            var size2 = megaliths[j].sprite.size;
+            var direction = 0;
+            var maxMegalithPosition = -1;
+            for (var j = 0; j < megaliths.length; j++) {
+                var pos2 = megaliths[j].pos;
+                var size2 = megaliths[j].sprite.size;
 
-            var prePos = pos.slice();
-            prePos[0] -= 25;
-            prePos[1] -= 30;
-            var preSize = size.slice();
-            preSize[0] += 15;
-            preSize[1] += + 60;
+                var prePos = pos.slice();
+                prePos[0] -= 25;
+                prePos[1] -= 30;
+                var preSize = size.slice();
+                preSize[0] += 15;
+                preSize[1] += + 60;
 
-            if (boxCollides(pos2, size2, prePos, preSize)) {
-                if (pos2[0] + size2[0] < pos[0] + size[0] / 2) {
-                    if (pos2[0] + size2[0] >= maxMegalithPosition) {
-                        maxMegalithPosition = pos2[0] + size2[0];
+                if (boxCollides(pos2, size2, prePos, preSize)) {
+                    if (pos2[0] + size2[0] < pos[0] + size[0] / 2) {
+                        if (pos2[0] + size2[0] >= maxMegalithPosition) {
+                            maxMegalithPosition = pos2[0] + size2[0];
 
-                        pos[0] += 0.7 * enemySpeed * dt;
-                        
-                        if (enemies[i].pos[1] <= pos2[1]) {
-                            direction = -enemySpeed * dt;
-                        }
-                        else {
-                            direction = enemySpeed * dt;
+                            pos[0] += 0.7 * enemySpeed * dt;
+
+                            if (enemies[i].pos[1] <= pos2[1]) {
+                                direction = -enemySpeed * dt;
+                            }
+                            else {
+                                direction = enemySpeed * dt;
+                            }
                         }
                     }
                 }
+                if (boxCollides(pos, size, pos2, size2)) {
+                    /*
+                    // Remove the enemy
+                    enemies.splice(i, 1);
+                    i--;
+    
+                    // Add an explosion
+                    explosions.push({
+                        pos: pos,
+                        sprite: new Sprite('img/sprites.png',
+                            [0, 117],
+                            [39, 39],
+                            16,
+                            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                            null,
+                            true)
+                    });
+                    */
+                    enemies[i].canMove = false;
+                }
             }
-            if (boxCollides(pos, size, pos2, size2)) {
-                // Remove the enemy
-                enemies.splice(i, 1);
-                i--;
-
-                // Add an explosion
-                explosions.push({
-                    pos: pos,
-                    sprite: new Sprite('img/sprites.png',
-                        [0, 117],
-                        [39, 39],
-                        16,
-                        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                        null,
-                        true)
-                });
+            if (enemies[i].canMove) {
+                enemies[i].pos[1] += direction;
             }
         }
-        enemies[i].pos[1] += direction;       
 
         for (var j = 0; j < bullets.length; j++) {
             var pos2 = bullets[j].pos;
